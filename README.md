@@ -8,7 +8,7 @@ in the spare time to replace my Google Sheets.
 - Web app
 - 1 household scale
 
-High-level diagram:
+### High-level diagram
 
 ```mermaid
 flowchart LR
@@ -18,7 +18,7 @@ flowchart LR
         UI["Web UI"]
     end
 
-    subgraph Backend["Backend (local web server on laptop)"]
+    subgraph Backend["Backend (local web server)"]
         API["Backend API"]
         Storage["Persistent storage"]
     end
