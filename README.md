@@ -1,4 +1,4 @@
-# Simple budget
+# Simple budget (50/30/20)
 
 Hobby tool to track monthly income / expenses and follow the [50/30/20 rule](https://en.wiktionary.org/wiki/50/30/20_rule). Built 
 in the spare time to replace my Google Sheets.
@@ -8,42 +8,55 @@ in the spare time to replace my Google Sheets.
 - Web app
 - 1 household scale
 
-### High-level diagram
+High-level diagram:
 
-TODO: actual diagram below
 ```mermaid
-graph TB
-    sq[Square shape] --> ci((Circle shape))
+flowchart LR
+    User("User")
 
-    subgraph A
-        od>Odd shape]-- Two line<br/>edge comment --> ro
-        di{Diamond with <br/> line break} -.-> ro(Rounded<br>square<br>shape)
-        di==>ro2(Rounded square shape)
+    subgraph Frontend["Frontend (Browser)"]
+        UI["Web UI"]
     end
 
-%% Notice that no text in shape are added here instead that is appended further down
-    e --> od3>Really long text with linebreak<br>in an Odd shape]
+    subgraph Backend["Backend (local web server on laptop)"]
+        API["Backend API"]
+        Storage["Persistent storage"]
+    end
 
-%% Comments after double percent signs
-    e((Inner / circle<br>and some odd <br>special characters)) --> f(,.?!+-*ز)
-
-    cyr[Cyrillic]-->cyr2((Circle shape Начало));
-
-    classDef green fill:#9f6,stroke:#333,stroke-width:2px;
-    classDef orange fill:#f96,stroke:#333,stroke-width:4px;
-    class sq,e green
-    class di orange
-
+    User --> | Inputs expenses<br> Sees monthly report | UI
+    UI --> API
+    API --> Storage
 ```
 
-## System requirements
+## Requirements
 
 ### Functional requirements
 
 MVP: 
 - CRUD (create-read-update-delete) monthly expenses
-- Monthly expense: money, timestamp, category, comment 
+- Expense includes: *money*, *timestamp*, *category*, *comment*
+- Categories: see [Appendix A](#appendix-a-expense-categories)
+
+Out of scope:
+- Income tracking
 
 ### Quality attributes
 
-MVP: should just run on my laptop locally
+MVP: 
+- Should just run on my laptop locally
+- Does not involve sensitive data
+
+### Appendix A: expense categories
+
+| Category           | Type  |
+|--------------------|-------|
+| Fun / travel       | Wants |
+| Groceries          | Needs |
+| Health / wellbeing | Needs |
+| Other needs        | Needs |
+| Rent / utilities   | Needs |
+| Restaurants        | Wants |
+| Services           | Needs |
+| Shopping           | Wants |
+| Taxi               | Wants |
+| Transportation     | Needs |
