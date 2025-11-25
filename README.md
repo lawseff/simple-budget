@@ -35,7 +35,7 @@ flowchart LR
 MVP: 
 - CRUD (create-read-update-delete) monthly expenses
 - Expense includes: *money*, *timestamp*, *category*, *comment*
-- Categories: see [Appendix A](#appendix-a-expense-categories)
+- Categories: see [Appendix A](#a-expense-categories)
 
 Out of scope:
 - Income tracking
@@ -46,7 +46,29 @@ MVP:
 - Should just run on my laptop locally
 - Does not involve sensitive data
 
-### Appendix A: expense categories
+## Technical details
+
+### Data schema
+
+```mermaid
+erDiagram
+    expense {
+        id                  uuid
+        amount              money
+        date                date
+        expense_category_id uuid
+    }
+    
+    expense_category {
+        id       uuid
+        category text
+        type enum
+    }
+```
+
+## Appendix 
+
+### A: Expense categories
 
 | Category           | Type  |
 |--------------------|-------|
@@ -60,3 +82,4 @@ MVP:
 | Shopping           | Wants |
 | Taxi               | Wants |
 | Transportation     | Needs |
+
