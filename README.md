@@ -5,7 +5,7 @@ in the spare time to replace my Google Sheets.
 
 ## Overview
 
-- Web app system
+- Web app
 - 1 household scale
 
 ### High-level diagram
@@ -40,11 +40,10 @@ graph TB
 
 ### Functional requirements
 
+MVP: 
+- CRUD (create-read-update-delete) monthly expenses
+- Monthly expense: money, timestamp, category, comment 
+
 ### Quality attributes
 
 MVP: should just run on my laptop locally
-
-### System constraints 
-
-TODO: add this section or not (language preference)?
-
