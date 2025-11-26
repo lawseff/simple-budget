@@ -48,23 +48,27 @@ MVP:
 
 ## Technical details
 
-### Data schema
+### Entity relationship
 
 ```mermaid
 erDiagram
-    expense {
-        id                  uuid
-        amount              money
-        date                date
-        expense_category_id uuid
+    Expense }o--|| Expense_Category : contains
+    
+    Expense {
+        uuid id PK
+        money               amount "NOT NULL"
+        date                date   "NOT NULL"
+        expense_category_id uuid   FK "NOT NULL"
     }
     
-    expense_category {
-        id       uuid
-        category text
-        type enum
+    Expense_Category {
+        uuid id       PK
+        text category "NOT NULL"
+        enum type     "NOT NULL. One of 'NEEDS', 'WANTS'"
     }
 ```
+
+Every entity may have metadata attributes like `created_at`, `updated_at`, `deleted_at`.
 
 ## Appendix 
 
