@@ -55,10 +55,12 @@ erDiagram
     Expense }o--|| Expense_Category : contains
     
     Expense {
-        uuid id PK
-        money               amount "NOT NULL"
-        date                date   "NOT NULL"
-        expense_category_id uuid   FK "NOT NULL"
+        uuid    id                  PK
+        numeric amount              "NOT NULL"
+        text    currency            "NOT NULL"
+        date    date                "NOT NULL"
+        text    comment
+        uuid    expense_category_id FK "NOT NULL"
     }
     
     Expense_Category {
