@@ -34,7 +34,7 @@ flowchart LR
 
 MVP: 
 - CRUD (create-read-update-delete) monthly expenses
-- Expense includes: *money*, *timestamp*, *category*, *comment*
+- Expense includes: *monetary amount*, *timestamp*, *category*, *comment*
 - Categories: see [Appendix A](#a-expense-categories)
 
 Out of scope:
@@ -76,16 +76,19 @@ Every entity may have metadata attributes like `created_at`, `updated_at`, `dele
 
 ### A: Expense categories
 
-| Category           | Type  |
-|--------------------|-------|
-| Fun / travel       | Wants |
-| Groceries          | Needs |
-| Health / wellbeing | Needs |
-| Other needs        | Needs |
-| Rent / utilities   | Needs |
-| Restaurants        | Wants |
-| Services           | Needs |
-| Shopping           | Wants |
-| Taxi               | Wants |
-| Transportation     | Needs |
+| Category            | Type  |
+|---------------------|-------|
+| Fun / travel        | Wants |
+| Groceries           | Needs |
+| Health / wellbeing  | Needs |
+| Housing / utilities | Needs |
+| Other needs         | Needs |
+| Restaurants         | Wants |
+| Services            | Needs |
+| Shopping            | Wants |
+| Taxi                | Wants |
+| Transportation      | Needs |
 
+### B: Concept art
+
+![Expenses](docs/concept-art-expenses.png)
