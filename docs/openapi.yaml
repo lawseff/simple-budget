@@ -1,0 +1,23 @@
+openapi: 3.0.4
+info:
+  title: Simple Budget API
+  version: CURRENT-SNAPSHOT
+
+servers:
+  - url: http://localhost:8080
+    description: Local server
+
+paths:
+  /month:
+    get:
+      summary: Get monthly report
+      description: TODO
+      responses:
+        "200":
+          description: TODO
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  type: string

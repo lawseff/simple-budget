@@ -23,7 +23,7 @@ flowchart LR
         Storage["Persistent storage"]
     end
 
-    User --> | Inputs expenses<br> Sees monthly report | UI
+    User --> | Inputs ins/outs<br> Sees monthly report | UI
     UI --> API
     API --> Storage
 ```
@@ -33,12 +33,9 @@ flowchart LR
 ### Functional requirements
 
 MVP: 
-- CRUD (create-read-update-delete) monthly expenses
-- Expense includes: *monetary amount*, *timestamp*, *category*, *comment*
-- Categories: see [Appendix A](#a-expense-categories)
-
-Out of scope:
-- Income tracking
+- CRUD (create-read-update-delete) monthly income / expenses ("entries")
+- Entry includes: *monetary value*, *date*, *category*, *comment*
+- Categories: see [Appendix A](#a-entry-categories)
 
 ### Quality attributes
 
@@ -52,42 +49,50 @@ MVP:
 
 ```mermaid
 erDiagram
-    Expense }o--|| Expense_Category : contains
+    Entry }o--|| Category : contains
     
-    Expense {
+    Entry {
         uuid    id                  PK
         numeric amount              "NOT NULL"
         text    currency            "NOT NULL"
         date    date                "NOT NULL"
         text    comment
-        uuid    expense_category_id FK "NOT NULL"
+        uuid    category_id FK "NOT NULL"
     }
     
-    Expense_Category {
-        uuid id       PK
-        text category "NOT NULL"
-        enum type     "NOT NULL. One of 'NEEDS', 'WANTS'"
+    Category {
+        uuid id   PK
+        text code "NOT NULL"
+        enum type "NOT NULL. One of 'INCOME', 'NEEDS', 'WANTS', 'SAVINGS'"
     }
 ```
 
 Every entity may have metadata attributes like `created_at`, `updated_at`, `deleted_at`.
 
+### API
+
+See [docs/openapi.yaml (REST API)](docs/openapi.yaml).
+
 ## Appendix 
 
-### A: Expense categories
+### A: Categories
 
-| Category            | Type  |
-|---------------------|-------|
-| Fun / travel        | Wants |
-| Groceries           | Needs |
-| Health / wellbeing  | Needs |
-| Housing / utilities | Needs |
-| Other needs         | Needs |
-| Restaurants         | Wants |
-| Services            | Needs |
-| Shopping            | Wants |
-| Taxi                | Wants |
-| Transportation      | Needs |
+| Category            | Type   |
+|---------------------|--------|
+| Dividends           | Income |
+| Salary              | Income |
+| Other income        | Income |
+| Groceries           | Needs  |
+| Health / wellbeing  | Needs  |
+| Housing / utilities | Needs  |
+| Other needs         | Needs  |
+| Services            | Needs  |
+| Transportation      | Needs  |
+| Fun / travel        | Wants  |
+| Other wants         | Wants  |
+| Restaurants         | Wants  |
+| Shopping            | Wants  |
+| Taxi                | Wants  |
 
 ### B: Concept art
 
