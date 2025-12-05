@@ -1,23 +1,84 @@
-openapi: 3.0.4
+openapi: 3.1.0
 info:
   title: Simple Budget API
   version: CURRENT-SNAPSHOT
 
-servers:
-  - url: http://localhost:8080
-    description: Local server
-
 paths:
-  /month:
+  /months/{yearMonth}:
     get:
-      summary: Get monthly report
-      description: TODO
+      summary: Get monthly budget report
+      description: Returns a MonthlyReport for the given year-month.
+      parameters:
+        - name: yearMonth
+          in: path
+          required: true
+          description: Year and month in yyyy-MM format.
+          schema:
+            type: string
+            pattern: "^[0-9]{4}-[0-9]{2}$"
       responses:
         "200":
-          description: TODO
+          description: Monthly report retrieved successfully.
           content:
             application/json:
               schema:
-                type: array
-                items:
-                  type: string
+                $ref: "#/components/schemas/MonthlyReport"
+
+components:
+  schemas:
+    MonetaryValue:
+      type: object
+      properties:
+        amount:
+          type: string
+          description: Decimal value represented as a string.
+        currency:
+          type: string
+          description: ISO currency code (e.g., "EUR", "USD").
+      required: [amount, currency]
+
+    Entry:
+      type: object
+      properties:
+        id:
+          type: string
+          format: uuid
+        money:
+          $ref: "#/components/schemas/MonetaryValue"
+        date:
+          type: string
+          format: date
+          description: ISO local date (YYYY-MM-DD).
+        category:
+          type: string
+        comment:
+          type: string
+          nullable: true
+      required: [id, money, date, category]
+
+    BudgetSection:
+      type: object
+      properties:
+        total:
+          $ref: "#/components/schemas/MonetaryValue"
+        relativeToIncome:
+          type: string
+          nullable: true
+        entries:
+          type: array
+          items:
+            $ref: "#/components/schemas/Entry"
+      required: [total, entries]
+
+    MonthlyReport:
+      type: object
+      properties:
+        income:
+          $ref: "#/components/schemas/BudgetSection"
+        needs:
+          $ref: "#/components/schemas/BudgetSection"
+        wants:
+          $ref: "#/components/schemas/BudgetSection"
+        savings:
+          $ref: "#/components/schemas/BudgetSection"
+      required: [income, needs, wants, savings]
