@@ -1,3 +1,6 @@
 ktor:
+  application:
+    modules:
+      - io.github.lawseff.budget.ApplicationKt.module
   deployment:
     port: 8080
