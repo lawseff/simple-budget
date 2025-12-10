@@ -3,6 +3,10 @@ info:
   title: Simple Budget API
   version: CURRENT-SNAPSHOT
 
+servers:
+  - url: http://localhost:8080/api
+    description: Local server
+
 paths:
   /months/{yearMonth}:
     get:

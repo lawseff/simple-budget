@@ -29,6 +29,7 @@ dependencies {
     implementation("io.ktor:ktor-server-config-yaml")
     implementation("io.ktor:ktor-server-content-negotiation")
     implementation("io.ktor:ktor-serialization-jackson")
+    implementation("io.ktor:ktor-server-swagger")
     implementation("ch.qos.logback:logback-classic:$logback_version")
 
     testImplementation("io.ktor:ktor-server-test-host")
