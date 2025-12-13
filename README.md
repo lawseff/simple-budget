@@ -101,7 +101,3 @@ See [docs/openapi.yaml (REST API)](docs/openapi.yaml).
 | Restaurants         | Wants  |
 | Shopping            | Wants  |
 | Taxi                | Wants  |
-
-### B: Concept art
-
-![Expenses](docs/concept-art-expenses.png)
