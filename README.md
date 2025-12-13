@@ -28,6 +28,14 @@ flowchart LR
     API --> Storage
 ```
 
+### Quick start
+
+
+
+```shell
+npm run dev --prefix frontend
+```
+
 ## Requirements
 
 ### Functional requirements
