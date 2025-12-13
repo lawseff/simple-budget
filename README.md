@@ -28,13 +28,18 @@ flowchart LR
     API --> Storage
 ```
 
-### Quick start
+## Quick start
 
+### Frontend
 
-
-```shell
-npm run dev --prefix frontend
-```
+1. Install dependencies:
+    ```shell
+    npm install --prefix frontend
+    ```
+2. Build the frontend which will be served by Ktor:
+    ```shell
+    npm run watch --prefix frontend # or use `build` if hot reloading is not needed
+    ```
 
 ## Requirements
 

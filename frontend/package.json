@@ -1,11 +1,12 @@
 {
-  "name": "vite-min-template",
+  "name": "budget",
   "private": true,
-  "version": "0.0.0",
+  "version": "CURRENT-SNAPSHOT",
   "type": "module",
   "scripts": {
     "dev": "vite",
     "build": "tsc && vite build",
+    "watch": "watch 'npm run build' ./src",
     "preview": "vite preview",
     "typecheck": "tsc --noEmit"
   },
@@ -13,7 +14,8 @@
     "@mantine/core": "8.3.10",
     "@mantine/hooks": "8.3.10",
     "react": "^19.1.1",
-    "react-dom": "^19.1.1"
+    "react-dom": "^19.1.1",
+    "watch": "^1.0.2"
   },
   "devDependencies": {
     "@types/react": "^19.1.13",

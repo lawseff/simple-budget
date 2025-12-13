@@ -1,7 +1,7 @@
 val logback_version: String by project
 
 plugins {
-    kotlin("jvm") version "2.0.20"
+    kotlin("jvm") version "2.2.10"
     id("io.ktor.plugin") version "3.2.3"
 }
 
@@ -10,10 +10,6 @@ version = "CURRENT-SNAPSHOT"
 
 repositories {
     mavenCentral()
-}
-
-dependencies {
-    testImplementation(kotlin("test"))
 }
 
 tasks.test {
@@ -32,5 +28,11 @@ dependencies {
     implementation("io.ktor:ktor-server-swagger")
     implementation("ch.qos.logback:logback-classic:$logback_version")
 
+    testImplementation(kotlin("test"))
     testImplementation("io.ktor:ktor-server-test-host")
 }
+
+// Otherwise, the gradlew build failing:
+// "In plugin 'com.github.jengelman.gradle.plugins.shadow.ShadowBasePlugin' type
+// 'com.github.jengelman.gradle.plugins.shadow.tasks.ShadowJar' property 'mainClassName' doesn't have a configured value."
+project.setProperty("mainClassName", "io.github.lawseff.budget.Application")
