@@ -27,6 +27,19 @@ paths:
             application/json:
               schema:
                 $ref: "#/components/schemas/MonthlyReport"
+  /categories:
+    get:
+      summary: Get categories
+      description: Returns the list of available Categories.
+      responses:
+        "200":
+          description: Categories retrieved successfully.
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: "#/components/schemas/Category"
 
 components:
   schemas:
@@ -53,12 +66,11 @@ components:
           type: string
           format: date
           description: ISO local date (YYYY-MM-DD).
-        category:
+        categoryCode:
           type: string
         comment:
           type: string
-          nullable: true
-      required: [id, money, date, category]
+      required: [ money, date, categoryCode ]
 
     BudgetSection:
       type: object
@@ -67,7 +79,6 @@ components:
           $ref: "#/components/schemas/MonetaryValue"
         relativeToIncome:
           type: string
-          nullable: true
         entries:
           type: array
           items:
@@ -86,3 +97,10 @@ components:
         savings:
           $ref: "#/components/schemas/BudgetSection"
       required: [income, needs, wants, savings]
+
+    Category:
+      type: object
+      properties:
+        code:
+          type: string
+      required: [code]

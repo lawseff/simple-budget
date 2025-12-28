@@ -48,7 +48,7 @@ flowchart LR
 MVP: 
 - CRUD (create-read-update-delete) monthly income / expenses ("entries")
 - Entry includes: *monetary value*, *date*, *category*, *comment*
-- Categories: see [Appendix A](#a-entry-categories)
+- Categories: see [Appendix A](#a-categories)
 
 ### Quality attributes
 
@@ -90,19 +90,21 @@ See [docs/openapi.yaml (REST API)](docs/openapi.yaml).
 
 ### A: Categories
 
-| Category            | Type   |
-|---------------------|--------|
-| Dividends           | Income |
-| Salary              | Income |
-| Other income        | Income |
-| Groceries           | Needs  |
-| Health / wellbeing  | Needs  |
-| Housing / utilities | Needs  |
-| Other needs         | Needs  |
-| Services            | Needs  |
-| Transportation      | Needs  |
-| Fun / travel        | Wants  |
-| Other wants         | Wants  |
-| Restaurants         | Wants  |
-| Shopping            | Wants  |
-| Taxi                | Wants  |
+| Category            | Type    |
+|---------------------|---------|
+| Dividends           | Income  |
+| Salary              | Income  |
+| Other income        | Income  |
+| Savings             | Savings |
+| Groceries           | Needs   |
+| Health / wellbeing  | Needs   |
+| Housing / utilities | Needs   |
+| Other needs         | Needs   |
+| Transportation      | Needs   |
+| Charity             | Wants   |
+| Fun / travel        | Wants   |
+| Other wants         | Wants   |
+| Restaurants         | Wants   |
+| Shopping            | Wants   |
+| Subscriptions       | Wants   |
+| Taxi                | Wants   |
