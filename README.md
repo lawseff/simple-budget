@@ -36,7 +36,7 @@ TBD
 
 ### Details
 
-See more in [Simple Budget docs](docs/simple-budget-docs).
+See more in [Simple Budget docs](docs/simple-budget-docs.md).
 
 ## Quick start
 
