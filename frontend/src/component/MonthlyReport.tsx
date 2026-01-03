@@ -13,9 +13,18 @@ import {
 } from '@mantine/core';
 import { useDisclosure } from '@mantine/hooks';
 import { monthlyReport } from '../service/mock-data.ts';
+import { useParams, Navigate } from 'react-router-dom';
+import { isValidYearMonth, today, yearMonth } from '../service/date-service.ts'
 
 export default function MonthlyReport() {
   const [rawOpen, { toggle }] = useDisclosure(false);
+
+  const { yearMonth: selectedYearMonth } = useParams<{ yearMonth?: string }>();
+
+  if (!isValidYearMonth(selectedYearMonth)) {
+    const currentYearMonth = yearMonth(today())
+    return <Navigate to={`/months/${currentYearMonth}`} replace />;
+  }
 
   const renderSection = (title: string, section: any) => (
     <Card key={title} radius="lg" shadow="sm" withBorder>
@@ -91,7 +100,7 @@ export default function MonthlyReport() {
         {/* Header */}
         <Group justify="space-between" mb="md">
           <Box>
-            <Title order={4}>Monthly Report — 2025-02</Title>
+            <Title order={4}>Monthly Report — {selectedYearMonth}</Title>
             <Text size="sm" c="dimmed">
               Simple Budget — 50/30/20
             </Text>

@@ -1,4 +1,4 @@
-import { createTheme } from '@mantine/core';
+import { createTheme } from '@mantine/core'
 
 export const theme = createTheme({
   fontFamily:
@@ -30,4 +30,4 @@ export const theme = createTheme({
       '#052675',
     ],
   },
-});
+})
