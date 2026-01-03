@@ -33,7 +33,7 @@ export const monthlyReport: MonthlyReport = {
         "id": "c6014519-459f-47cd-a563-26a88c33e962",
         "money": {"amount": "1200.00", "currency": "EUR"},
         "date": "2025-02-03",
-        "categoryCode": "HOUSING_UTILITIES",
+        "categoryCode": "HOUSING_AND_UTILITIES",
       },
       {
         "id": "94e0fa8c-e07a-4334-bbb7-7db6d81672e1",
@@ -59,7 +59,7 @@ export const monthlyReport: MonthlyReport = {
         "id": "fdddd144-949c-4f33-8d93-29ae9e2c1d10",
         "money": {"amount": "150.00", "currency": "EUR"},
         "date": "2025-02-18",
-        "categoryCode": "HEALTH_WELLBEING",
+        "categoryCode": "HEALTH_AND_WELLBEING",
         "comment": "Dentist visit",
       },
     ],

@@ -11,10 +11,10 @@ export const yearMonth = (date: Date): YearMonth => format(date, 'yyyy-MM') as Y
 
 export const isValidYearMonth = (value?: string): value is string => {
   if (!value) {
-    return false;
+    return false
   }
 
-  const date = parse(value, 'yyyy-MM', new Date());
+  const date = parse(value, 'yyyy-MM', new Date())
 
-  return isValid(date) && value === yearMonth(date);
-};
+  return isValid(date) && value === yearMonth(date)
+}
