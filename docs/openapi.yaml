@@ -103,4 +103,7 @@ components:
       properties:
         code:
           type: string
-      required: [code]
+        type:
+          type: string
+          enum: ['INCOME', 'SAVINGS', 'NEEDS', 'WANTS']
+      required: [code, type]
